@@ -1,6 +1,6 @@
 package sort;
 
-import java.util.ArrayList;
+import java.util.Arrays;
 
 public class QuickSort implements ISort {
     @Override
@@ -16,24 +16,11 @@ public class QuickSort implements ISort {
         if (arr[0] == arr[arr.length - 1]) {
             return arr;
         }
+
         int mid = arr[0];
-        ArrayList<Integer> l = new ArrayList<>();
-        ArrayList<Integer> r = new ArrayList<>();
-        for (int ele : arr) {
-            if (ele <= mid) {
-                l.add(ele);
-            } else {
-                r.add(ele);
-            }
-        }
-        int[] ll = new int[l.size()];
-        int[] rr = new int[r.size()];
-        for (int i = 0; i < l.size(); i++) {
-            ll[i] = l.get(i);
-        }
-        for (int i = 0; i < r.size(); i++) {
-            rr[i] = r.get(i);
-        }
+        int[] ll = Arrays.stream(arr).filter(x -> x <= mid).toArray();
+        int[] rr = Arrays.stream(arr).filter(x -> x > mid).toArray();
+
         swap(ll, 0, ll.length - 1); // key point!
         ll = qsort(ll);
         rr = qsort(rr);
