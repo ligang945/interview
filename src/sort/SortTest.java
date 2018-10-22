@@ -8,7 +8,8 @@ public class SortTest {
 //        ISort sort = new InsertSort();
 //        ISort sort = new MergeSort();
 //        ISort sort = new QuickSort();
-        ISort sort = new CountSort();
+//        ISort sort = new CountSort();
+        ISort sort = new ShellSort();
 
         sort.sort(array);
         for (int ele : array) {
