@@ -1,5 +1,6 @@
 package ob;
 
+import java.util.ArrayList;
 import java.util.LinkedHashSet;
 
 public class Publisher {
@@ -9,7 +10,12 @@ public class Publisher {
         list.add(s);
     }
 
-    public void update() {
+    public void changed(){
+        System.out.println("publisher changed");
+        notifyObservers();
+    }
+
+    public void notifyObservers() {
         list.forEach(ISubscriber::update);
     }
 }

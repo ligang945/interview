@@ -9,6 +9,6 @@ public class Main {
         publisher.add(subscriberA);
         publisher.add(subscriberB);
 
-        publisher.update();
+        publisher.changed();
     }
 }
